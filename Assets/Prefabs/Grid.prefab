@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5955437591146384940}
   - component: {fileID: 3262108083540093478}
   - component: {fileID: 4555934239406255976}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b477baff1eb88419c8336b796c9e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Grid
-  gridDescription: 
+  gridDescription: WalkableGrid
 --- !u!1 &6929879708903256472
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +138,6 @@ GameObject:
   - component: {fileID: 7017870702756429139}
   - component: {fileID: 8248660437975211601}
   - component: {fileID: 5517936624132508347}
-  - component: {fileID: 7911898779177982971}
   m_Layer: 0
   m_Name: Quad
   m_TagString: Untagged
@@ -218,25 +217,3 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7911898779177982971
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6929879708903256472}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
