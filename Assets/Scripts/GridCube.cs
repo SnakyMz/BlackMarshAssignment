@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Grid : MonoBehaviour
+public class GridCube : MonoBehaviour
 {
     [SerializeField] string gridDescription;
 
