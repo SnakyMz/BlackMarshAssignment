@@ -7,6 +7,8 @@ public class MouseSystem : MonoBehaviour
     public static MouseSystem Instance { get; private set; }
     [SerializeField] LayerMask mouseLayerMask;
     [SerializeField] TextMeshProUGUI descriptionText;
+    [SerializeField] TextMeshProUGUI unitNameText;
+    [SerializeField] TextMeshProUGUI unitPositionText;
 
     Unit selectedUnit = null;
 
@@ -59,5 +61,20 @@ public class MouseSystem : MonoBehaviour
         }
         selectedUnit = unit;
         selectedUnit.ToggleSelectVisual(true);
+        UpdateUnitPanel();
+    }
+
+    void UpdateUnitPanel()
+    {
+        if (selectedUnit)
+        {
+            unitNameText.text = selectedUnit.name;
+            unitPositionText.text = "Position " + selectedUnit.transform.position.x + " : " + selectedUnit.transform.position.z;
+        }
+        else
+        {
+            unitNameText.text = "Unit Name";
+            unitPositionText.text = "Position 0 : 0";
+        }
     }
 }
