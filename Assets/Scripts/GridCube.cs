@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Grid : MonoBehaviour
+public class GridCube : MonoBehaviour
 {
-    [SerializeField] string gridDescription;
+    [SerializeField] string description;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,14 +16,13 @@ public class Grid : MonoBehaviour
 
     }
 
-    // For UI display
     public string GetDescription()
     {
-        return transform.position.x + " : " + transform.position.z + " " + gridDescription;
+        return transform.position.x + " : " + transform.position.z + "\n" + description;
     }
 
     public void ChangeDescription(string newDescription)
     {
-        gridDescription = newDescription;
+        description = newDescription;
     }
 }

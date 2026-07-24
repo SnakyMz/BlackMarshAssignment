@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8456033713838800207}
   - component: {fileID: 5955437591146384940}
   - component: {fileID: 3262108083540093478}
-  - component: {fileID: 4555934239406255976}
+  - component: {fileID: -5871938266628232344}
   m_Layer: 3
-  m_Name: Grid
+  m_Name: GridCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +114,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4555934239406255976
+--- !u!114 &-5871938266628232344
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,10 +123,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4959251241651781174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49b477baff1eb88419c8336b796c9e0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2afe4822e8de60e4cb71f737da214f56, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Grid
-  gridDescription: WalkableGrid
+  m_EditorClassIdentifier: Assembly-CSharp::GridCube
+  description: Walkable Grid Cube
 --- !u!1 &6929879708903256472
 GameObject:
   m_ObjectHideFlags: 0

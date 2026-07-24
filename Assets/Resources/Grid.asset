@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Grid
   m_EditorClassIdentifier: Assembly-CSharp::GridSO
   ObstacleLocations:
-  - {x: 2, y: 0}
-  - {x: 9, y: 6}
-  - {x: 0, y: 5}
-  - {x: 8, y: 2}
-  - {x: 8, y: 8}
+  - {x: 2, y: 2}
+  - {x: 2, y: 6}
+  - {x: 6, y: 6}

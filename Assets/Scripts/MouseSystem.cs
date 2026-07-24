@@ -36,9 +36,9 @@ public class MouseSystem : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, mouseLayerMask))
         {
             // If we hover over a grid display description
-            if (hit.collider.TryGetComponent<Grid>(out Grid grid))
+            if (hit.collider.TryGetComponent<GridCube>(out GridCube gridCube))
             {
-                descriptionText.text = grid.GetDescription();
+                descriptionText.text = gridCube.GetDescription();
             }
 
             if (Mouse.current.leftButton.wasPressedThisFrame)
