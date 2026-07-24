@@ -21,4 +21,9 @@ public class Grid : MonoBehaviour
     {
         return transform.position.x + " : " + transform.position.z + " " + gridDescription;
     }
+
+    public void ChangeDescription(string newDescription)
+    {
+        gridDescription = newDescription;
+    }
 }

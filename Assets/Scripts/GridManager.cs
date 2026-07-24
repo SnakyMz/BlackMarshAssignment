@@ -6,11 +6,11 @@ public class GridManager : MonoBehaviour
     [SerializeField] GridSO gridSO;
     [SerializeField] GameObject obstaclePrefab;
 
-    // Dictionary<Vector2Int, GameObject> gridCubes = new Dictionary<Vector2Int, GameObject>();
+    Dictionary<Vector2Int, Grid> gridCubes = new Dictionary<Vector2Int, Grid>();
 
     void Awake()
     {
-        // BuildDictionary();
+        BuildDictionary();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,28 +28,30 @@ public class GridManager : MonoBehaviour
 
     }
 
-    // void BuildDictionary()
-    // {
-    //     gridCubes.Clear();
+    void BuildDictionary()
+    {
+        gridCubes.Clear();
 
-    //     // Since this is attached to Grids which is parent to all Grid cubes
-    //     foreach (Transform child in transform)
-    //     {
-    //         Vector2Int gridPosition = new(
-    //             Mathf.RoundToInt(child.position.x),
-    //             Mathf.RoundToInt(child.position.z)
-    //         );
+        // Since this is attached to Grids which is parent to all Grid cubes
+        foreach (Transform child in transform)
+        {
+            Vector2Int gridPosition = new(
+                Mathf.RoundToInt(child.position.x),
+                Mathf.RoundToInt(child.position.z)
+            );
 
-    //         if (!gridCubes.ContainsKey(gridPosition))
-    //         {
-    //             gridCubes.Add(gridPosition, child.gameObject);
-    //         }
-    //     }
-    // }
+            if (!gridCubes.ContainsKey(gridPosition))
+            {
+                gridCubes.Add(gridPosition, child.GetComponent<Grid>());
+            }
+        }
+    }
 
     void SpawnObstacle(Vector2Int location)
     {
-        // if (gridCubes.TryGetValue(location, out GameObject gridCube)) return;
+        if (!gridCubes.TryGetValue(location, out Grid gridCube)) return;
+
+        gridCube.ChangeDescription("Obstacle");
         Vector3 spawnLocation = new Vector3(location.x, obstaclePrefab.transform.position.y, location.y);
         Instantiate(obstaclePrefab, spawnLocation, Quaternion.identity, transform);
     }
