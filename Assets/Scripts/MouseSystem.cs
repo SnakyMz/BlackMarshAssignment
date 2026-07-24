@@ -4,8 +4,22 @@ using UnityEngine.InputSystem;
 
 public class MouseSystem : MonoBehaviour
 {
+    public static MouseSystem Instance { get; private set; }
     [SerializeField] LayerMask mouseLayerMask;
     [SerializeField] TextMeshProUGUI descriptionText;
+
+    Unit selectedUnit = null;
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Debug.LogError("There's more than one unit action system" + transform + " - " + Instance);
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,14 +33,31 @@ public class MouseSystem : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, mouseLayerMask))
         {
-            if (hit.transform.TryGetComponent<Grid>(out Grid grid))
+            // If we hover over a grid display description
+            if (hit.collider.TryGetComponent<Grid>(out Grid grid))
             {
                 descriptionText.text = grid.GetDescription();
             }
+
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                if (hit.collider.TryGetComponent<Unit>(out Unit unit))
+                {
+                    SelectUnit(unit);
+                }
+            }
         }
-        else
+    }
+
+    void SelectUnit(Unit unit)
+    {
+        if (unit == selectedUnit) return;
+
+        if (selectedUnit)
         {
-            descriptionText.text = "";
+            selectedUnit.ToggleSelectVisual(false);
         }
+        selectedUnit = unit;
+        selectedUnit.ToggleSelectVisual(true);
     }
 }

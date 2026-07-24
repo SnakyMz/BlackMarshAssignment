@@ -1,13 +1,14 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Grid : MonoBehaviour
+public class Unit : MonoBehaviour
 {
-    [SerializeField] string gridDescription;
+    [SerializeField] GameObject selectVisual;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        ToggleSelectVisual(false);
     }
 
     // Update is called once per frame
@@ -16,9 +17,8 @@ public class Grid : MonoBehaviour
 
     }
 
-    // For UI display
-    public string GetDescription()
+    public void ToggleSelectVisual(bool state)
     {
-        return transform.position.x + " : " + transform.position.z + " " + gridDescription;
+        selectVisual.SetActive(state);
     }
 }
