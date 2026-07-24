@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62256ed690edfc4c87a24a43345eda6, type: 3}
   m_Name: Grid
   m_EditorClassIdentifier: Assembly-CSharp::GridSO
-  ObstacleLocations: []
+  ObstacleLocations:
+  - {x: 2, y: 0}
+  - {x: 9, y: 6}
+  - {x: 0, y: 5}
+  - {x: 8, y: 2}
+  - {x: 8, y: 8}
